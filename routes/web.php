@@ -11,6 +11,7 @@
 |
 */
 
-Route::resource("/", "GlobalController");
-Route::resource('/emps', "EmployeeController");
-Route::resource('/tasks', "TaskController");
+/* Route::resource("/", "GlobalController"); */
+Route::get("/","GlobalController@index");
+Route::get('/emps', "EmployeeController@index");
+Route::get('/tasks', "TaskController@index");

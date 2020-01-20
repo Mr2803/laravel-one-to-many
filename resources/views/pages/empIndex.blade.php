@@ -1,8 +1,29 @@
 @extends('layouts.base')
 
-@section("content")
 
-<h4>Employee : {{$emps -> count()}}</h4>
+
+@section('content')
+<div class="col-12">
+
+    <h4>Employee : {{$emps -> count()}}</h4>
+    
+    <table>
+    
+        <tr>
+            <td>[ID]</td>
+            <td>[NOME]</td>
+            <td>[RELAZIONE IN TAB TASKS]</td>
+        </tr>
+        @foreach ($emps as $emp)
+            <tr>
+            <td>{{$emp -> id}}</td>
+            <td>{{$emp -> name }} {{$emp -> lastname }}</td>
+            <td>{{$emp -> tasks() -> count()}}</td>
+            </tr>
+        @endforeach
+    </table>
+    @endsection
+</div>
 
 {{-- <ul>
 
@@ -47,11 +68,10 @@
     </li>
 </ul> --}}
 
-<ul>
+{{-- <ul>
     @foreach ($emps as $emp)
 <li>{{$emp-> name}} {{$emp -> lastname}} : {{$emp -> tasks() -> count()}}</li>
     @endforeach
 
 
-</ul>
-@endsection
+</ul> --}}
