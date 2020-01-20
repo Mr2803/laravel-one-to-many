@@ -47,7 +47,9 @@ class EmployeeController extends Controller
      */
     public function show($id)
     {
-        //
+        $emp = Employee::FindorFail($id);
+
+        return view('pages.empShow', compact('emp'));
     }
 
     /**

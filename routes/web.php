@@ -15,3 +15,4 @@
 Route::get("/","GlobalController@index");
 Route::get('/emps', "EmployeeController@index");
 Route::get('/tasks', "TaskController@index");
+Route::get('/emps/{id}', "EmployeeController@show") -> name('emps.show');

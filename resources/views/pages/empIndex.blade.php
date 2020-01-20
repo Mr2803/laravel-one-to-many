@@ -1,29 +1,80 @@
 @extends('layouts.base')
-
-
-
 @section('content')
-<div class="col-12">
+<div class="col-6">
 
-    <h4>Employee : {{$emps -> count()}}</h4>
+    <h4>Employee with task</h4>
     
     <table>
-    
+        
         <tr>
             <td>[ID]</td>
             <td>[NOME]</td>
             <td>[RELAZIONE IN TAB TASKS]</td>
         </tr>
         @foreach ($emps as $emp)
+        @if ($emp -> tasks() -> count() > 0 )
+            <tr>
+            <td>{{$emp -> id}}</td>
+            <td><strong><a href="{{route("emps.show",$emp -> id)}}">{{$emp -> name }} {{$emp -> lastname }}</a></strong></td>
+            <td>{{$emp -> tasks() -> count()}}</td>
+            </tr>
+        @endif
+        @endforeach
+        </table>
+    </div>
+    <div class="col-6">
+
+    <h4>Employee without task</h4>
+    
+    <table>
+        
+        <tr>
+            <td>[ID]</td>
+            <td>[NOME]</td>
+        </tr>
+        @foreach ($emps as $emp)
+        @if ($emp -> tasks() -> count() < 1 )
+         
+            <tr>
+            <td>{{$emp -> id}}</td>
+            <td>{{$emp -> name }} {{$emp -> lastname }}</td>
+            </tr>
+        @endif
+        @endforeach
+        </table>
+    </div>
+    @endsection   
+{{--     <h4>Employee withOUT task: {{$emps -> count()}}</h4>
+    
+    <table>
+        
+        <tr>
+            <td>[ID]</td>
+            <td>[NOME]</td>
+            <td>[RELAZIONE IN TAB TASKS]</td>
+        </tr>
+        @foreach ($emps as $emp)
+        @if ($emp -> tasks() -> count() < 1 )
             <tr>
             <td>{{$emp -> id}}</td>
             <td>{{$emp -> name }} {{$emp -> lastname }}</td>
             <td>{{$emp -> tasks() -> count()}}</td>
             </tr>
+        @endif
+        </div>
+        
+        {{-- @if ($emp -> tasks() -> count() < 1 )
+            <tr>
+            <td>{{$emp -> id}}</td>
+            <td>{{$emp -> name }} {{$emp -> lastname }}</td>
+            <td>Nessun Task Trovato</td>
+            </tr>
+        @endif 
         @endforeach
-    </table>
-    @endsection
-</div>
+        </table>
+     </div> --}}
+  
+
 
 {{-- <ul>
 
