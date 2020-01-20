@@ -15,8 +15,9 @@
         @if ($emp -> tasks() -> count() > 0 )
             <tr>
             <td>{{$emp -> id}}</td>
-            <td><strong><a href="{{route("emps.show",$emp -> id)}}">{{$emp -> name }} {{$emp -> lastname }}</a></strong></td>
+            <td><strong>{{$emp -> name }} {{$emp -> lastname }}</strong></td>
             <td>{{$emp -> tasks() -> count()}}</td>
+            <td><a href="{{route("emps.show",$emp -> id)}}"><i class="fas fa-info-circle"></i></a></td>
             </tr>
         @endif
         @endforeach
@@ -37,7 +38,8 @@
          
             <tr>
             <td>{{$emp -> id}}</td>
-            <td> <strong><a href="{{route("emps.show",$emp -> id)}}">{{$emp -> name }} {{$emp -> lastname }}</a></strong></td>
+            <td> <strong>{{$emp -> name }} {{$emp -> lastname }}</strong></td>
+            <td><a href="{{route("emps.show",$emp -> id)}}"><i class="fas fa-info-circle"></i></a></td>
             </tr>
         @endif
         @endforeach
