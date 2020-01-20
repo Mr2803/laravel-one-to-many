@@ -11,5 +11,6 @@
 |
 */
 
+Route::resource("/", "GlobalController");
 Route::resource('/emps', "EmployeeController");
 Route::resource('/tasks', "TaskController");
