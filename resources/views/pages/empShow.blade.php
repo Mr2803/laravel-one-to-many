@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="col-12">
-
+<a href="{{route("emps.index")}}"><i class="fas fa-arrow-circle-left"></i></a>
 <h6>Nome Employee:</h6>
 </div>
     <div class="col-12">
@@ -26,4 +26,5 @@
       <p>Nessun Task Associato</p>
   @endif
 </ul>
+
 @endsection
