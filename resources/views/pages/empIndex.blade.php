@@ -37,7 +37,7 @@
          
             <tr>
             <td>{{$emp -> id}}</td>
-            <td>{{$emp -> name }} {{$emp -> lastname }}</td>
+            <td> <strong><a href="{{route("emps.show",$emp -> id)}}">{{$emp -> name }} {{$emp -> lastname }}</a></strong></td>
             </tr>
         @endif
         @endforeach

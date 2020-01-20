@@ -13,6 +13,6 @@
 
 /* Route::resource("/", "GlobalController"); */
 Route::get("/","GlobalController@index")  -> name('home');
-Route::get('/emps', "EmployeeController@index");
-Route::get('/tasks', "TaskController@index");
+Route::get('/emps', "EmployeeController@index") -> name('emps.index');
+Route::get('/tasks', "TaskController@index") -> name('tasks.index');;
 Route::get('/emps/{id}', "EmployeeController@show") -> name('emps.show');

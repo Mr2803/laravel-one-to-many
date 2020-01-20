@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="col-6">
-<a href="{{url("/emps")}}"><h4>Employee : {{$emps -> count()}}</h4></a>
+<a href="{{route('emps.index')}}"><h4>Employee : {{$emps -> count()}}</h4></a>
 
 
 <table>
@@ -23,7 +23,7 @@
 </table>
 </div>
 <div class="col-6">
-    <a href="{{url("/tasks")}}"><h4>Task : {{$tasks -> count()}}</h4></a>
+    <a href="{{route("tasks.index")}}"><h4>Task : {{$tasks -> count()}}</h4></a>
     <table>
 
     <tr>
