@@ -1,8 +1,10 @@
 @extends('layouts.base')
 @section('content')
+<div class="col-12">
+<h6>Aggiungi Employee  <a href="{{route("emp.create")}}"><i class="fas fa-plus"></i></a></h6>
+  </div> 
 <div class="col-6">
-
-    <h4>Employee with task</h4>
+    <h4>Employee with task </h4>
     
     <table>
         
@@ -17,7 +19,9 @@
             <td>{{$emp -> id}}</td>
             <td><strong>{{$emp -> name }} {{$emp -> lastname }}</strong></td>
             <td>{{$emp -> tasks() -> count()}}</td>
+            <td><a href="{{route("emp.edit",$emp -> id)}}"><i class="fas fa-pencil-alt"></i></a></td>
             <td><a href="{{route("emps.show",$emp -> id)}}"><i class="fas fa-info-circle"></i></a></td>
+            <td><a href="{{route("emps.destroy",$emp -> id)}}"><i class="fas fa-trash"></i></a></td>
             </tr>
         @endif
         @endforeach
@@ -39,7 +43,9 @@
             <tr>
             <td>{{$emp -> id}}</td>
             <td> <strong>{{$emp -> name }} {{$emp -> lastname }}</strong></td>
+            <td><a href="{{route("emp.edit",$emp -> id)}}"><i class="fas fa-pencil-alt"></i></a></td>
             <td><a href="{{route("emps.show",$emp -> id)}}"><i class="fas fa-info-circle"></i></a></td>
+            <td><a href="{{route("emps.destroy",$emp -> id)}}"><i class="fas fa-trash"></i></a></td>
             </tr>
         @endif
         @endforeach

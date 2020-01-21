@@ -2,6 +2,9 @@
 
 @section('content')
 <div class="col-12">
+    <h6>Aggiungi Task <a href="{{route("task.create")}}"><i class="fas fa-plus"></i></a></h6>
+</div>
+<div class="col-12">
 
     <h4>Task : {{$tasks -> count()}}</h4>
         <table>

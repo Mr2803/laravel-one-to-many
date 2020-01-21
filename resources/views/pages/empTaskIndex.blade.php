@@ -39,6 +39,7 @@
         <td>{{$task -> name }} {{$task -> lastname }}</td>
         <td>{{$task -> employee -> name}} {{$task -> employee -> lastname}}</td>
         <td>{{$task -> employee_id}}</td>
+        <td>{{$task -> start_date}}</td>
     </tr>
     @endforeach
 </table>

@@ -18,6 +18,7 @@ class AddForeignKey extends Migration
             $table -> bigInteger('employee_id') -> unsigned() -> index();
             $table -> foreign('employee_id', 'tasks_employees')
                    -> references('id')
+                   -> onDelete('cascade')
                    -> on('employees');
         });
     }

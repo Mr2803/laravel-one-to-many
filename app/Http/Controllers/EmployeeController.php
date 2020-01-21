@@ -18,6 +18,7 @@ class EmployeeController extends Controller
         return view("pages.empIndex", compact("emps"));
     }
 
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -25,7 +26,7 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        //
+         return view('pages.empStore');
     }
 
     /**
@@ -36,7 +37,15 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $datiValidi = $request -> validate([
+            'name' => 'required',
+            'lastname' => 'required',
+            'birth_year' => 'required|numeric'
+        ]);
+
+        $emp = Employee::create($datiValidi);
+
+        return redirect('/emps');
     }
 
     /**
@@ -60,7 +69,9 @@ class EmployeeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $emp = Employee::FindorFail($id);
+
+        return view("pages.empEdit" , compact("emp"));
     }
 
     /**
@@ -72,7 +83,16 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $datiValidi = $request -> validate([
+            'name' => 'required',
+            'lastname' => 'required',
+            'birth_year' => 'required|numeric'
+        ]);
+
+        $emp = Employee::FindorFail($id);
+        $emp ->update($datiValidi);
+
+        return redirect('/emps');
     }
 
     /**
@@ -83,6 +103,8 @@ class EmployeeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $emp = Employee::findOrFail($id);
+        $emp -> delete();
+        return redirect("/emps");
     }
 }

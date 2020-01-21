@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Task;
+use App\Employee;
 class TaskController extends Controller
 {
     /**
@@ -24,7 +25,7 @@ class TaskController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.taskStore');
     }
 
     /**
@@ -35,7 +36,20 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datiValidi = $request -> validate([
+            'employee_id' => 'required|numeric',
+            'name' => 'required',
+            'description' => 'required',
+            'start_date' => 'required'
+        ]);
+
+        $emp = Employee::findOrFail($datiValidi['employee_id']);
+
+        $task = Task::make($datiValidi);
+        $task -> employee() -> associate($emp);
+        $task -> save();
+
+        return redirect('/tasks');
     }
 
     /**
